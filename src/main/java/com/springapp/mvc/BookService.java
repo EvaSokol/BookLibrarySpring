@@ -22,4 +22,11 @@ public class BookService {
     public Set<Book> getAllBooks() {
         return bookSet;
     }
+
+    public Set<Book> getBooksThisYear() {
+        Set<Book> yearSet = new HashSet<>();
+        for(Book book : bookSet)
+            if (book.getProductionYear() == 2015) yearSet.add(book);
+        return yearSet;
+    }
 }

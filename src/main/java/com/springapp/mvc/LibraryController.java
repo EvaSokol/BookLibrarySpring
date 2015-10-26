@@ -27,6 +27,8 @@ public class LibraryController {
                             @RequestParam(value="productionYear", required=true) int productionYear){
         bookService.saveBook(new Book(bookName, authorName, productionYear));
         model.addAttribute("bookSet", bookService.getAllBooks());
+//        model.addAttribute("bookSet", bookService.getBooksThisYear());
+        model.addAttribute("bookThisYearSet", bookService.getBooksThisYear());
 
         return "library";
     }

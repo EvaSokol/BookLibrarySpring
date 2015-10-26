@@ -17,6 +17,15 @@
         </c:forEach>
     </ul>
 
+    </br>
+    </br>
+
+    <ul>
+        <c:forEach var="book" items="${bookThisYearSet}">
+            <li>${book.bookName} ${book.authorName} ${book.productionYear}</li>
+        </c:forEach>
+    </ul>
+
 
 </body>
 </html>

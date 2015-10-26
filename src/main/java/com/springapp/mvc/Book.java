@@ -12,6 +12,12 @@ public class Book {
         this.productionYear = productionYear;
     }
 
+    Book() {
+        this.bookName = "Default Book Name";
+        this.authorName = "Default Author";
+        this.productionYear = 0000;
+    }
+
     public String getBookName() {
         return bookName;
     }
