@@ -1,9 +1,6 @@
 package com.springapp.mvc;
 
-/**
- * Created by Eva Sokolyanskaya on 25/10/2015.
- * My first Spring class
- */
+
 public class Library {
 
     private String name;

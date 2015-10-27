@@ -29,4 +29,25 @@ public class BookService {
             if (book.getProductionYear() == 2015) yearSet.add(book);
         return yearSet;
     }
+
+    public Set<Book> getBooksOfYear(int year) {
+        Set<Book> yearSet = new HashSet<>();
+        for(Book book : bookSet)
+            if (book.getProductionYear() == year) yearSet.add(book);
+        return yearSet;
+    }
+
+    public Book getBookByName(String bookName) {
+        for (Book book : bookSet) {
+            if (bookName.equals(bookName))
+                return book;
+        }
+        return null;
+    }
+
+    public void editBook(String bookName, String author, int year) {
+        Book book  = getBookByName(bookName);
+        book.setAuthorName(author);
+        book.setProductionYear(year);
+    }
 }

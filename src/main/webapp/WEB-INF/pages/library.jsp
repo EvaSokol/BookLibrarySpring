@@ -13,12 +13,18 @@
 
     <ul>
         <c:forEach var="book" items="${bookSet}">
-            <li>${book.bookName} ${book.authorName} ${book.productionYear}</li>
+            <li>${book.bookName} ${book.authorName} ${book.productionYear}
+            <a href="<c:url value="/editBook.jsp?id=${book.bookName}"/>">Edit Book</a> </li>
         </c:forEach>
     </ul>
 
     </br>
     </br>
+    <form action="/spring3/" method="POST">
+            <input type="number" name="filterYear" placeholder="Filter only this year">
+            <input type="submit" value="ThisYearBooks">
+    </form>
+
 
     <ul>
         <c:forEach var="book" items="${bookThisYearSet}">
