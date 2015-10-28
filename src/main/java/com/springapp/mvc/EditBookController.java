@@ -14,6 +14,13 @@ public class EditBookController {
     @Autowired
     private BookService bookService;
 
+    @RequestMapping(value = "/editBook.html", method = RequestMethod.GET)
+    public String printWelcome(ModelMap model,
+                               @RequestParam(value="id", required=true) String bookName) {
+        model.addAttribute("message", "Hello my world!");
+        return "library";
+    }
+
     @RequestMapping(value = "/editBook.html", method = RequestMethod.POST)
     public String editBook(ModelMap model,
                            @RequestParam(value="id", required=true) String bookName)      {
