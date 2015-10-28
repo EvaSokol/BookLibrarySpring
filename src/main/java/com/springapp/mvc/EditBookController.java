@@ -8,22 +8,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/editBook.jsp")
+@RequestMapping("/spring3/editBook.jsp")
 public class EditBookController {
 
     @Autowired
     private BookService bookService;
 
-    @RequestMapping(value = "/editBook.html", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model,
-                               @RequestParam(value="id", required=true) String bookName) {
-        model.addAttribute("message", "Hello my world!");
-        return "library";
+//                               @RequestParam(value="id", required=true)
+                               String bookName) {
+        model.addAttribute("message", "Hello " + bookName);
+        return "editBook";
     }
 
-    @RequestMapping(value = "/editBook.html", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public String editBook(ModelMap model,
-                           @RequestParam(value="id", required=true) String bookName)      {
+//                           @RequestParam(value="id", required=true)
+                           String bookName)      {
         model.addAttribute("bookSet", bookService.getBookByName(bookName));
 
         return "editBook";

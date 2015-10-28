@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-//@RequestMapping("/")
+@RequestMapping("/")
 public class LibraryController {
 
     @Autowired
     private BookService bookService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
         model.addAttribute("message", "Hello my world!");
         return "library";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public String storeBook(ModelMap model,
                             @RequestParam(value="bookName", required=true) String bookName,
                             @RequestParam(value="authorName", required=true) String authorName,
@@ -33,13 +33,13 @@ public class LibraryController {
         return "library";
     }
 
-    @RequestMapping(value = "editBook.jsp", method = RequestMethod.POST)
-    public String editBook(ModelMap model,
-                           @RequestParam("id") String bookName)      {
-        model.addAttribute("bookSet", bookService.getBookByName(bookName));
-
-        return "editBook";
-    }
+//    @RequestMapping(value = "/editBook.jsp", method = RequestMethod.POST)
+//    public String editBook(ModelMap model,
+//                           @RequestParam("id") String bookName)      {
+//        model.addAttribute("bookSet", bookService.getBookByName(bookName));
+//
+//        return "editBook";
+//    }
 
     @RequestMapping(value = "/ThisYearBooks", method = RequestMethod.POST)
     public String getBooksOfYear(ModelMap model,

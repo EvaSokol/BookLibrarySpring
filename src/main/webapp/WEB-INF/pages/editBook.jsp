@@ -10,6 +10,12 @@
         <input type="submit" value="SaveBook">
     </form>
 
+    <ul>
+        <c:forEach var="book" items="${bookSet}">
+            <li>${book.bookName} ${book.authorName} ${book.productionYear}
+            <a href="<c:url value="/editBook.jsp?id=${book.bookName}"/>">Edit Book</a> </li>
+        </c:forEach>
+    </ul>
 
 </body>
 </html>
